@@ -17,7 +17,7 @@ const About = () => {
 		{ title: "3D Designer", imageSrc: threeDDesignerImg },
 	];
 	return (
-		<motion.div className="h-screen sm:px-56 px-10   pt-20 ">
+		<div className="sm:h-screen sm:px-56 px-10 bg-green-200 ">
 			<motion.h1
 				variants={slideIn("up", "tween", 0.2, 1)}
 				initial="hidden"
@@ -48,7 +48,7 @@ const About = () => {
 			<motion.div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 justify-center items-center gap-20">
 				{cards.map((card, index) => (
 					<motion.div
-						variants={slideIn("left", "tween", 0.6 * index, 1)}
+						variants={slideIn("left", "tween", 0.2 * index, 1.2)}
 						initial="hidden"
 						whileInView={"show"}
 						viewport={{ once: false, amount: 0.25 }}
@@ -67,7 +67,7 @@ const About = () => {
 					</motion.div>
 				))}
 			</motion.div>
-		</motion.div>
+		</div>
 	);
 };
 

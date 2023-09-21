@@ -27,7 +27,7 @@ const Navbar = () => {
 		};
 	}, []);
 	return (
-		<nav className="z-10 py-5 flex sm:flex-row justify-between sm:px-56 px-10 bg-secondary sm:items-center  sticky top-0 flex-col ">
+		<nav className="z-10 py-5 flex sm:flex-row justify-between sm:px-56 px-10 bg-secondary sm:items-center mb-20  sticky top-0 flex-col ">
 			<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
 			<BiMenuAltRight
 				cursor="pointer"

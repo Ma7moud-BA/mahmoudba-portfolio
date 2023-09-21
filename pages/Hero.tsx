@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
 	return (
-		<div className="h-screen sm:px-56 px-10 pt-20 flex  w-fit ">
+		<div className="h-screen sm:px-56 px-10  flex   ">
 			<div className="flex-1">
 				<h1 className="font-extrabold  text-8xl uppercase"> Hi,I&rsquo;M </h1>
 				<h2 className="text-primary font-bold text-7xl">Mahmoud BanyAmer</h2>
