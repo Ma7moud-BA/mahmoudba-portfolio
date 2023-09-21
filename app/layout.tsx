@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 const ipm_flex_mono = IBM_Plex_Mono({
 	style: "normal",
-	weight: "100",
+	weight: ["100", "200", "300", "400", "500", "600", "700"],
 	subsets: ["cyrillic"],
 });
 

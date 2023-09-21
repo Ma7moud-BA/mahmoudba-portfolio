@@ -1,12 +1,12 @@
 "use client";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { NavigationMenu } from "../ui/navigation-menu";
 import { ModeToggle } from "../ModeToggle";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { navMenuVariantsSm, navMenuVariants } from "@/lib/motions";
+import { Link } from "react-scroll";
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(true);
 	// Function to handle screen size changes and update showMenu state
@@ -26,19 +26,21 @@ const Navbar = () => {
 			window.removeEventListener("resize", handleScreenSizeChange);
 		};
 	}, []);
+	const variantsSmOrLg =
+		window.innerWidth < 640 ? navMenuVariants : navMenuVariantsSm;
 	return (
-		<nav className="z-10 py-5 flex sm:flex-row justify-between sm:px-56 px-10 bg-secondary sm:items-center mb-20  sticky top-0 flex-col ">
+		<nav className="sticky top-0 z-10 flex flex-col justify-between px-10 py-5 mb-20 transition border-b sm:flex-row sm:px-56 bg-background sm:items-center ">
 			<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
 			<BiMenuAltRight
 				cursor="pointer"
 				size={40}
-				className="sm:hidden hover:text-primary absolute top-5 right-5 "
+				className="absolute sm:hidden hover:text-primary top-5 right-5 "
 				onClick={() => {
 					setShowMenu((prev) => !prev);
 				}}
 			/>
 			<motion.div
-				variants={window.innerWidth < 640 ? navMenuVariants : navMenuVariantsSm}
+				variants={variantsSmOrLg}
 				initial="hidden"
 				whileInView={"show"}
 				className={`flex sm:flex-row flex-col gap-5 self-end     ${
@@ -46,20 +48,32 @@ const Navbar = () => {
 				} `}
 			>
 				<Link
-					href={"/"}
-					className="font-bold sm:text-3xl hover:text-primary transition-all hover:scale-110 duration-500  "
+					to="about"
+					spy={true}
+					smooth={true}
+					offset={-100}
+					duration={500}
+					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					About
 				</Link>
 				<Link
-					href={"/"}
-					className="font-bold sm:text-3xl hover:text-primary transition-all hover:scale-110 duration-500  "
+					to="works"
+					spy={true}
+					smooth={true}
+					offset={-100}
+					duration={500}
+					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					Works
 				</Link>
 				<Link
-					href={"/"}
-					className="font-bold sm:text-3xl hover:text-primary transition-all hover:scale-110 duration-500  "
+					to="contact"
+					spy={true}
+					smooth={true}
+					offset={-100}
+					duration={500}
+					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					Contact
 				</Link>

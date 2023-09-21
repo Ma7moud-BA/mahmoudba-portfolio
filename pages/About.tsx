@@ -17,12 +17,12 @@ const About = () => {
 		{ title: "3D Designer", imageSrc: threeDDesignerImg },
 	];
 	return (
-		<div className="sm:h-screen sm:px-56 px-10 bg-green-200 ">
+		<div className="px-10 sm:h-screen sm:px-56 " id="about">
 			<motion.h1
 				variants={slideIn("up", "tween", 0.2, 1)}
 				initial="hidden"
 				whileInView={"show"}
-				className="font-extrabold text-xl  opacity-50 "
+				className="text-xl font-extrabold opacity-50 "
 			>
 				Introduction
 			</motion.h1>
@@ -30,7 +30,7 @@ const About = () => {
 				variants={slideIn("up", "tween", 0.2, 1)}
 				initial="hidden"
 				whileInView={"show"}
-				className=" text-5xl font-bold "
+				className="text-5xl font-bold "
 			>
 				Overview
 			</motion.h1>
@@ -45,7 +45,7 @@ const About = () => {
 				modi libero nemo quibusdam unde eligendi ipsum rem accusantium tenetur
 				magnam.
 			</motion.p>
-			<motion.div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 justify-center items-center gap-20">
+			<motion.div className="grid items-center justify-center gap-20 mt-10 sm:grid-cols-2 md:grid-cols-3">
 				{cards.map((card, index) => (
 					<motion.div
 						variants={slideIn("left", "tween", 0.2 * index, 1.2)}
@@ -53,7 +53,7 @@ const About = () => {
 						whileInView={"show"}
 						viewport={{ once: false, amount: 0.25 }}
 						key={card.title}
-						className=" py-12 bg-accent px-20  rounded-lg flex flex-col justify-center items-center   "
+						className="flex flex-col items-center justify-center px-20 py-12 border rounded-lg bg-card"
 					>
 						<Image
 							src={card.imageSrc}
@@ -62,8 +62,8 @@ const About = () => {
 							alt={card.title}
 							className="mb-5"
 						/>
-						<h3 className=" text-2xl font-bold">{card.title.split(" ")[0]}</h3>
-						<h3 className=" text-2xl font-bold">{card.title.split(" ")[1]}</h3>
+						<h3 className="text-2xl font-bold ">{card.title.split(" ")[0]}</h3>
+						<h3 className="text-2xl font-bold ">{card.title.split(" ")[1]}</h3>
 					</motion.div>
 				))}
 			</motion.div>

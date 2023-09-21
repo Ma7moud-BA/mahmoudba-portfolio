@@ -10,6 +10,14 @@ import reactImg from "../assets/imgs/tech/reactjs.png";
 import tailwindImg from "../assets/imgs/tech/tailwind.png";
 import tsImg from "../assets/imgs/tech/typescript.png";
 import threeJSImg from "../assets/imgs/tech/threejs.svg";
+import sanityImg from "../assets/imgs/tech/Sanity-logo-svg.svg";
+import prismaImg from "../assets/imgs/tech/icons8-prisma-orm.svg";
+import nextjsImg from "../assets/imgs/tech/nextjs-13.svg";
+
+import project_1 from "../assets/imgs/projects/project-1.avif";
+import project_2 from "../assets/imgs/projects/project-2.avif";
+import project_3 from "../assets/imgs/projects/project-3.avif";
+import project_4 from "../assets/imgs/projects/project-4.avif";
 
 // const services = [
 // 	{
@@ -30,11 +38,39 @@ import threeJSImg from "../assets/imgs/tech/threejs.svg";
 // 	},
 // ];
 
-type Tech = {
+export type Techs = {
 	name: string;
 	icon: StaticImageData;
 }[];
-const technologies: Tech = [
+export type Tech = {
+	name: string;
+	icon: StaticImageData;
+};
+export type Projects = {
+	id: number;
+	name: string;
+	description: string;
+	tags: {
+		name: string;
+		color: string;
+	}[];
+	image: StaticImageData;
+	github_link: string;
+	liveDemoLink: string;
+}[];
+export type Project = {
+	id: number;
+	name: string;
+	description: string;
+	tags: {
+		name: string;
+		color: string;
+	}[];
+	image: StaticImageData;
+	github_link: string;
+	liveDemoLink: string;
+};
+const technologies: Techs = [
 	{
 		name: "HTML 5",
 		icon: htmlImg,
@@ -78,6 +114,18 @@ const technologies: Tech = [
 	{
 		name: "figma",
 		icon: figmaImg,
+	},
+	{
+		name: "Sanity",
+		icon: sanityImg,
+	},
+	{
+		name: "Prisma OEM",
+		icon: prismaImg,
+	},
+	{
+		name: "NextJs",
+		icon: nextjsImg,
 	},
 ];
 
@@ -163,70 +211,145 @@ const technologies: Tech = [
 // 	},
 // ];
 
-// const projects = [
-// 	{
-// 		name: "Car Rent",
-// 		description:
-// 			"Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-// 		tags: [
-// 			{
-// 				name: "react",
-// 				color: "blue-text-gradient",
-// 			},
-// 			{
-// 				name: "mongodb",
-// 				color: "green-text-gradient",
-// 			},
-// 			{
-// 				name: "tailwind",
-// 				color: "pink-text-gradient",
-// 			},
-// 		],
-// 		image: carrent,
-// 		source_code_link: "https://github.com/",
-// 	},
-// 	{
-// 		name: "Job IT",
-// 		description:
-// 			"Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-// 		tags: [
-// 			{
-// 				name: "react",
-// 				color: "blue-text-gradient",
-// 			},
-// 			{
-// 				name: "restapi",
-// 				color: "green-text-gradient",
-// 			},
-// 			{
-// 				name: "scss",
-// 				color: "pink-text-gradient",
-// 			},
-// 		],
-// 		image: jobit,
-// 		source_code_link: "https://github.com/",
-// 	},
-// 	{
-// 		name: "Trip Guide",
-// 		description:
-// 			"A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-// 		tags: [
-// 			{
-// 				name: "nextjs",
-// 				color: "blue-text-gradient",
-// 			},
-// 			{
-// 				name: "supabase",
-// 				color: "green-text-gradient",
-// 			},
-// 			{
-// 				name: "css",
-// 				color: "pink-text-gradient",
-// 			},
-// 		],
-// 		image: tripguide,
-// 		source_code_link: "https://github.com/",
-// 	},
-// ];
+const projects: Projects = [
+	{
+		id: 1,
+		name: "Car Rent",
+		description:
+			"Web-based platform that allows providing a convenior transportation needs.",
+		tags: [
+			{
+				name: "react",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "mongodb",
+				color: "green-text-gradient",
+			},
+			{
+				name: "tailwind",
+				color: "pink-text-gradient",
+			},
+		],
+		image: project_1,
+		github_link: "https://github.com/",
+		liveDemoLink: "",
+	},
+	{
+		id: 2,
+		name: "Job IT",
+		description:
+			"Web application that enables users to search for job openings, ranges for positions,.",
+		tags: [
+			{
+				name: "react",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "restapi",
+				color: "green-text-gradient",
+			},
+			{
+				name: "scss",
+				color: "pink-text-gradient",
+			},
+		],
+		image: project_2,
 
-export { technologies };
+		github_link: "https://github.com/",
+		liveDemoLink: "",
+	},
+	{
+		id: 3,
+		name: "Trip Guide",
+		description:
+			"A comprehensive travel bocars, and offers curated recommendations for popular destinations.",
+		tags: [
+			{
+				name: "nextjs",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "supabase",
+				color: "green-text-gradient",
+			},
+			{
+				name: "css",
+				color: "pink-text-gradient",
+			},
+		],
+		image: project_3,
+		github_link: "https://github.com/",
+		liveDemoLink: "",
+	},
+	{
+		id: 4,
+		name: "Trip Guide",
+		description:
+			"A comprehensive travel bookintal cars, anopular destinations.",
+		tags: [
+			{
+				name: "nextjs",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "supabase",
+				color: "green-text-gradient",
+			},
+			{
+				name: "css",
+				color: "pink-text-gradient",
+			},
+		],
+		image: project_4,
+		github_link: "https://github.com/",
+		liveDemoLink: "",
+	},
+	{
+		id: 5,
+		name: "Trip Guide",
+		description:
+			"A comprehensive travel booki cations for popular destinations.",
+		tags: [
+			{
+				name: "nextjs",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "supabase",
+				color: "green-text-gradient",
+			},
+			{
+				name: "css",
+				color: "pink-text-gradient",
+			},
+		],
+		image: project_2,
+		github_link: "https://github.com/",
+		liveDemoLink: "",
+	},
+	{
+		id: 6,
+		name: "Trip Guide",
+		description: "A comprehensive travend rentons for popular destinations.",
+		tags: [
+			{
+				name: "nextjs",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "supabase",
+				color: "green-text-gradient",
+			},
+			{
+				name: "css",
+				color: "pink-text-gradient",
+			},
+		],
+		image: project_4,
+		github_link: "https://github.com/",
+		liveDemoLink: "",
+	},
+];
+
+export { technologies, projects };
