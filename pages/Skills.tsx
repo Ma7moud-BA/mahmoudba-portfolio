@@ -4,13 +4,13 @@ import Skill from "@/components/Skill";
 import SectionTitle from "@/components/SectionTitle";
 const Skills = () => {
 	return (
-		<div className="flex flex-col section mt-10">
+		<div className="flex flex-col skills section ">
 			<SectionTitle
 				smallTextTitle="My skills "
 				largeTextTitle="Technologies."
 			/>
 
-			<div className="grid grid-cols-4 lg:grid-cols-6 lg:max-w-5xl gap-5 mt-5 items-center max-w-md justify-center mx-auto">
+			<div className="grid  grid-cols-4 lg:grid-cols-6 lg:max-w-5xl gap-5 mt-5 items-center max-w-md justify-center mx-auto">
 				{technologies.map((tech, i) => (
 					<Skill
 						fadeInDirection={i < 8 ? "left" : "right"}

@@ -5,7 +5,7 @@ import SectionText from "@/components/sectionText";
 import Card from "@/components/Card";
 const About = () => {
 	return (
-		<div className="  section " id="about">
+		<div className=" about section pb-5" id="about">
 			<SectionTitle smallTextTitle="introduction" largeTextTitle="overview" />
 			<SectionText
 				text="	Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
