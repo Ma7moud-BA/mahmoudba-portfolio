@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "@/lib/motions";
-import { Project } from "@/contants/constants";
+import { Project } from "@/app/types";
 import Image from "next/image";
 import { VscLiveShare } from "react-icons/vsc";
 import { AiFillGithub } from "react-icons/ai";

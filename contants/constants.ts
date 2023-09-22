@@ -19,6 +19,12 @@ import project_2 from "../assets/imgs/projects/project-2.avif";
 import project_3 from "../assets/imgs/projects/project-3.avif";
 import project_4 from "../assets/imgs/projects/project-4.avif";
 
+import { Cards, Card, Tech, Project, Projects, Techs } from "@/app/types";
+
+import frontEndImage from "@/assets/imgs/front-end-v2.png";
+import backEndImage from "@/assets/imgs/backend.png";
+import threeDDesignerImg from "@/assets/imgs/3d designer.png";
+
 // const services = [
 // 	{
 // 		title: "Web Developer",
@@ -38,38 +44,6 @@ import project_4 from "../assets/imgs/projects/project-4.avif";
 // 	},
 // ];
 
-export type Techs = {
-	name: string;
-	icon: StaticImageData;
-}[];
-export type Tech = {
-	name: string;
-	icon: StaticImageData;
-};
-export type Projects = {
-	id: number;
-	name: string;
-	description: string;
-	tags: {
-		name: string;
-		color: string;
-	}[];
-	image: StaticImageData;
-	github_link: string;
-	liveDemoLink: string;
-}[];
-export type Project = {
-	id: number;
-	name: string;
-	description: string;
-	tags: {
-		name: string;
-		color: string;
-	}[];
-	image: StaticImageData;
-	github_link: string;
-	liveDemoLink: string;
-};
 const technologies: Techs = [
 	{
 		name: "HTML 5",
@@ -211,6 +185,11 @@ const technologies: Techs = [
 // 	},
 // ];
 
+export const cards: Cards = [
+	{ title: "Frontend Developer", imageSrc: frontEndImage },
+	{ title: "Backend Developer", imageSrc: backEndImage },
+	{ title: "3D Designer", imageSrc: threeDDesignerImg },
+];
 const projects: Projects = [
 	{
 		id: 1,

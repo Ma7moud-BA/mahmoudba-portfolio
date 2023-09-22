@@ -1,9 +1,9 @@
-import { Tech } from "@/contants/constants";
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { slideIn } from "@/lib/motions";
 import Image from "next/image";
-
+import { Tech } from "@/app/types";
 import {
 	Tooltip,
 	TooltipContent,
@@ -32,8 +32,8 @@ const Skill = ({
 						<Image
 							className="flex items-center justify-center min-h-full dark:invert "
 							alt={tech.name}
-							width={100}
-							height={100}
+							width={120}
+							height={120}
 							src={tech.icon}
 						/>
 					</TooltipTrigger>
