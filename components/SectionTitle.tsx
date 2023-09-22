@@ -17,7 +17,7 @@ const SectionTitle = ({
 				initial="hidden"
 				whileInView={"show"}
 				viewport={{ once: false }}
-				className="text-xl font-extrabold opacity-50  uppercase  dark:text-primary"
+				className="text-xl  font-extrabold opacity-50  uppercase  text-primary"
 			>
 				{smallTextTitle}
 			</motion.h1>

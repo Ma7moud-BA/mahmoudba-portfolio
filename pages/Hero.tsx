@@ -2,11 +2,15 @@ import React from "react";
 
 const Hero = () => {
 	return (
-		<div className="h-screen sm:px-56 px-10  flex   ">
-			<div className="flex-1">
-				<h1 className="font-extrabold  text-8xl uppercase"> Hi,I&rsquo;M </h1>
-				<h2 className="text-primary font-bold text-7xl">Mahmoud BanyAmer</h2>
-				<p className="mt-3 ">
+		<div className="   section flex flex-col lg:flex-row">
+			<div className="flex-1 mx-auto h-screen max-h-screen overflow-y-auto">
+				<h1 className="font-extrabold lg:text-8xl text-4xl uppercase">
+					Hi, I&#39;M
+				</h1>
+				<h2 className="text-primary font-bold lg:text-7xl text-5xl">
+					Mahmoud BanyAmer
+				</h2>
+				<p className="mt-3">
 					Passionate web developer, with a dedicated focus on both front-end and
 					back-end development. Currently building a foundation in creating
 					engaging web experiences and problem-solving skills. Eager to

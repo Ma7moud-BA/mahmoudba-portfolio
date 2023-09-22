@@ -4,7 +4,7 @@ import Skill from "@/components/Skill";
 import SectionTitle from "@/components/SectionTitle";
 const Skills = () => {
 	return (
-		<div className="flex flex-col h-screen px-10 sm:px-56 mt-10">
+		<div className="flex flex-col section mt-10">
 			<SectionTitle
 				smallTextTitle="My skills "
 				largeTextTitle="Technologies."

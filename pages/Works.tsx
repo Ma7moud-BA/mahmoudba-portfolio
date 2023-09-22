@@ -7,7 +7,7 @@ import Projects from "@/components/Projects";
 
 const Works = () => {
 	return (
-		<div className="h-screen px-10 sm:px-56" id="works">
+		<div className="section" id="works">
 			<SectionTitle smallTextTitle="Case Studies" largeTextTitle="Projects." />
 			<div className="mt-12 flex lg:flex-row flex-col min-h-[70vh] gap-5">
 				<Projects projects={projects} />

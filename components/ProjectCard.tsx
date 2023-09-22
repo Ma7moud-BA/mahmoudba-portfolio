@@ -45,9 +45,9 @@ const ProjectCard = ({
 					variants={fadeIn("down", "spring", 0.1, 0.5)}
 					initial="hidden"
 					whileInView={"show"}
-					className="absolute bottom-0 w-full py-8 px-4 justify-start flex   rounded-b-xl bg-[rgba(1,1,1,.5)]"
+					className="absolute pt-2  bottom-0 w-full lg:py-8  px-4 justify-start flex   rounded-b-xl bg-[rgba(1,1,1,.5)]"
 				>
-					<div className="flex-1">
+					<div className="flex-1  ">
 						<h2 className="text-xl font-bold leading-5 text-white uppercase">
 							{project.name}
 						</h2>

@@ -8,12 +8,12 @@ import ContactMe from "@/pages/ContactMe";
 
 export default function Home() {
 	return (
-		<main className="h-full ">
+		<div className=" section-container  ">
 			<Hero />
 			<About />
 			<Skills />
 			<Works />
 			<ContactMe />
-		</main>
+		</div>
 	);
 }
