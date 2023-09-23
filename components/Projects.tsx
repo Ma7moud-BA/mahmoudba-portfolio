@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { Projects } from "@/app/types";
+import { Project, work_section } from "@/types";
 type ProjectsProps = {
-	projects: Projects;
+	projects: Project[];
 };
 
 const Projects = ({ projects }: ProjectsProps) => {
-	const [active, setActive] = useState<number>(2);
+	const [active, setActive] = useState<string>("");
 
 	return (
 		<>

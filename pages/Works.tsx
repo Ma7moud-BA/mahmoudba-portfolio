@@ -4,8 +4,14 @@ import { projects } from "@/contants/constants";
 
 import SectionTitle from "@/components/SectionTitle";
 import Projects from "@/components/Projects";
+import { getWorkSections } from "@/sanity/sanity.utils";
 
-const Works = () => {
+const Works = async () => {
+	const work_section = await getWorkSections();
+	const { small_text, large_text, _id, projects } = work_section;
+
+	console.log(work_section);
+
 	return (
 		<div className="section" id="works">
 			<SectionTitle smallTextTitle="Case Studies" largeTextTitle="Projects." />

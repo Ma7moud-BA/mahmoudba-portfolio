@@ -1,23 +1,28 @@
+import { getHeroSection } from "@/sanity/sanity.utils";
+import Image from "next/image";
 import React from "react";
 
-const Hero = () => {
+const Hero = async () => {
+	const hero_section = await getHeroSection();
 	return (
-		<div className="   section hero flex flex-col lg:flex-row  ">
-			<div className="flex-1 mx-auto h-screen max-h-screen overflow-y-auto">
-				<h1 className="font-extrabold lg:text-8xl text-4xl uppercase">
-					Hi, I&#39;M
+		<div className="flex flex-col section hero lg:flex-row">
+			<div className="max-h-screen mx-auto overflow-y-auto md:flex-1 h-fit">
+				<h1 className="text-4xl font-extrabold uppercase lg:text-8xl">
+					{hero_section.small_text}
 				</h1>
-				<h2 className="text-primary font-bold lg:text-7xl text-5xl">
-					Mahmoud BanyAmer
+				<h2 className="text-5xl font-bold text-primary lg:text-7xl">
+					{hero_section.large_text}
 				</h2>
-				<p className="mt-3">
-					Passionate web developer, with a dedicated focus on both front-end and
-					back-end development. Currently building a foundation in creating
-					engaging web experiences and problem-solving skills. Eager to
-					contribute to a dynamic team while further growing as a web developer.
-				</p>
+				<p className="mt-3">{hero_section.bio}</p>
 			</div>
-			<div className="flex-1"></div>
+
+			<Image
+				src={hero_section.hero_image}
+				width={1000}
+				height={1000}
+				className="object-cover mx-auto rounded-full mt-10 sm:mt-0 sm:w-[500px] sm:h-[500px] border-primary border-2 shadow-md shadow-primary w-[300px] h-[300px] "
+				alt="hero image"
+			></Image>
 		</div>
 	);
 };

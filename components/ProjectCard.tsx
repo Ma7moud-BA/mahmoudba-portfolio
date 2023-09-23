@@ -2,15 +2,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "@/lib/motions";
-import { Project } from "@/app/types";
+import { Project } from "@/types";
 import Image from "next/image";
 import { VscLiveShare } from "react-icons/vsc";
 import { AiFillGithub } from "react-icons/ai";
+import Link from "next/link";
 type ProjectCardProps = {
 	index: number;
 	project: Project;
-	active: number;
-	handleClick: React.Dispatch<React.SetStateAction<number>>;
+	active: string;
+	handleClick: React.Dispatch<React.SetStateAction<string>>;
 };
 const ProjectCard = ({
 	index,
@@ -31,8 +32,8 @@ const ProjectCard = ({
 			}`}
 		>
 			<Image
-				src={project.image}
-				alt={project.name}
+				src={project.bannerUrl}
+				alt={project.title}
 				width={300}
 				height={300}
 				className={`absolute object-cover w-full h-full rounded-xl`}
@@ -47,25 +48,29 @@ const ProjectCard = ({
 					whileInView={"show"}
 					className="absolute pt-2  bottom-0 w-full lg:py-8  px-4 justify-start flex   rounded-b-xl bg-[rgba(1,1,1,.5)]"
 				>
-					<div className="flex-1  ">
+					<div className="flex-1 ">
 						<h2 className="text-xl font-bold leading-5 text-white uppercase">
-							{project.name}
+							{project.title}
 						</h2>
 						<p className="text-white">{project.description}</p>
 						<div className="flex items-center gap-2 mt-2 font-extrabold text-white">
 							<div className="w-16 h-16 mb-4 rounded-lg   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
-								<VscLiveShare color="white" size={35} className="" />
+								<Link href={project.demo_url}>
+									<VscLiveShare color="white" size={35} />
+								</Link>
 							</div>
-							<p> Live Demo</p>
+							<Link href={project.demo_url}> Live Demo</Link>
 						</div>
 					</div>
 					<div className="w-16 h-16 mb-4 rounded-lg flex-2   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
-						<AiFillGithub color="white" size={35} className="" />
+						<Link href={project.github_repo}>
+							<AiFillGithub color="white" size={35} />
+						</Link>
 					</div>
 				</motion.div>
 			) : (
 				<h3 className="font-extrabold sm:text-2xl text-3xl text-white    absolute z-0 lg:bottom-20 lg:-right-6 lg:-rotate-90 lg:origin-[0,0]">
-					{project.name}
+					{project.title}
 				</h3>
 			)}
 		</motion.div>

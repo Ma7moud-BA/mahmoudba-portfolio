@@ -19,7 +19,7 @@ import project_2 from "../assets/imgs/projects/project-2.avif";
 import project_3 from "../assets/imgs/projects/project-3.avif";
 import project_4 from "../assets/imgs/projects/project-4.avif";
 
-import { Cards, Card, Tech, Project, Projects, Techs } from "@/app/types";
+import { Cards, Card, Tech, Project, Projects, Techs } from "@/types";
 
 import frontEndImage from "@/assets/imgs/front-end-v2.png";
 import backEndImage from "@/assets/imgs/backend.png";

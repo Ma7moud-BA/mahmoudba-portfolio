@@ -3,20 +3,24 @@ import SectionTitle from "@/components/SectionTitle";
 import { cards } from "@/contants/constants";
 import SectionText from "@/components/sectionText";
 import Card from "@/components/Card";
-const About = () => {
+import { getAboutSection } from "@/sanity/sanity.utils";
+import exp from "constants";
+const About = async () => {
+	const about_section = await getAboutSection();
+	const { small_text, large_text, _id, description, expertise } = about_section;
 	return (
-		<div className=" about section pb-5" id="about">
-			<SectionTitle smallTextTitle="introduction" largeTextTitle="overview" />
-			<SectionText
-				text="	Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
-				eligendi, blanditiis neque at voluptate itaque fugiat maiores? Natus
-				provident aperiam officiis, qui eligendi et facilis pariatur sit
-				inventore, tempore dolorum?"
-			></SectionText>
+		<div className="pb-5 about section" id="about">
+			<SectionTitle smallTextTitle={small_text} largeTextTitle={large_text} />
+			<SectionText text={description}></SectionText>
 
 			<div className="grid items-center justify-center gap-20 mt-10 sm:grid-cols-2 md:grid-cols-3">
-				{cards.map((card, index) => (
-					<Card card={card} index={index} key={card.title}></Card>
+				{expertise.map((expert, index) => (
+					<Card
+						title={expert.expert_title}
+						iconUrl={expert.expert_icon_url}
+						index={index}
+						key={about_section._id}
+					></Card>
 				))}
 			</div>
 		</div>

@@ -9,25 +9,45 @@ import { navMenuVariantsSm, navMenuVariants } from "@/lib/motions";
 import { Link } from "react-scroll";
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(true);
+	const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
 	// Function to handle screen size changes and update showMenu state
 	const handleScreenSizeChange = () => {
-		if (window.innerWidth >= 640) {
+		if (window?.innerWidth >= 640) {
 			setShowMenu(true);
 		}
-		if (window.innerWidth <= 640) {
+		if (window?.innerWidth <= 640) {
 			setShowMenu(false);
 		}
 	};
+
 	useEffect(() => {
-		//To fix the issue where the menu remains hidden even when the screen resolution changes back to not being "sm"
-		window.addEventListener("resize", handleScreenSizeChange);
-		window.innerWidth <= 640 && setShowMenu(false);
-		return () => {
-			window.removeEventListener("resize", handleScreenSizeChange);
+		// Function to handle screen size changes and update showMenu state
+		const handleScreenSizeChange = () => {
+			if (typeof window !== "undefined") {
+				setWindowWidth(window.innerWidth);
+			}
 		};
+
+		if (typeof window !== "undefined") {
+			// To fix the issue where the menu remains hidden even when the screen resolution changes back to not being "sm"
+			window.addEventListener("resize", handleScreenSizeChange);
+			setWindowWidth(window.innerWidth);
+
+			if (window.innerWidth <= 640) {
+				setShowMenu(false);
+			}
+
+			return () => {
+				window.removeEventListener("resize", handleScreenSizeChange);
+			};
+		}
 	}, []);
 	const variantsSmOrLg =
-		window.innerWidth < 640 ? navMenuVariants : navMenuVariantsSm;
+		windowWidth !== undefined && windowWidth < 640
+			? navMenuVariants
+			: navMenuVariantsSm;
+
 	return (
 		<nav className="sticky top-0 z-10 flex flex-col justify-between px-10 py-5 mb-20 transition border-b sm:flex-row sm:px-56 bg-background sm:items-center ">
 			<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
@@ -40,10 +60,10 @@ const Navbar = () => {
 				}}
 			/>
 			<motion.div
-				variants={variantsSmOrLg}
+				variants={variantsSmOrLg || {}}
 				initial="hidden"
 				whileInView={"show"}
-				className={`flex sm:flex-row flex-col gap-5 self-end     ${
+				className={`flex sm:flex-row flex-col gap-5 self-end  sm:relative sm:top-0 sm:w-fit  sm:bg-inherit   ${
 					showMenu ? "block" : "hidden"
 				} `}
 			>
@@ -52,7 +72,7 @@ const Navbar = () => {
 					spy={true}
 					smooth={true}
 					offset={-100}
-					duration={500}
+					duration={400}
 					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					About
@@ -62,7 +82,7 @@ const Navbar = () => {
 					spy={true}
 					smooth={true}
 					offset={-100}
-					duration={500}
+					duration={400}
 					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					Works

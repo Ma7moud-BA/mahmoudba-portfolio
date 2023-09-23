@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { slideIn } from "@/lib/motions";
 import Image from "next/image";
-import { Tech } from "@/app/types";
+import { Tech } from "@/types";
 import {
 	Tooltip,
 	TooltipContent,
@@ -11,16 +11,10 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const Skill = ({
-	tech,
-	fadeInDirection = "left",
-}: {
-	tech: Tech;
-	fadeInDirection: "left" | "right";
-}) => {
+const Skill = ({ title, iconUrl, fadeInDirection = "left" }: Tech) => {
 	return (
 		<motion.div
-			key={tech.name}
+			key={title}
 			initial="hidden"
 			whileInView={"show"}
 			variants={slideIn(fadeInDirection, "tween", 0.2, 1)}
@@ -31,14 +25,14 @@ const Skill = ({
 					<TooltipTrigger>
 						<Image
 							className="flex items-center justify-center min-h-full dark:invert "
-							alt={tech.name}
+							alt={title}
 							width={120}
 							height={120}
-							src={tech.icon}
+							src={iconUrl}
 						/>
 					</TooltipTrigger>
 					<TooltipContent>
-						<p className="text-lg font-bold">{tech.name}</p>
+						<p className="text-lg font-bold">{title}</p>
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
