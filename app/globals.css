@@ -92,6 +92,6 @@ body::-webkit-scrollbar {
 	background-size: cover;
 }
 
-.text_shadow {
+.text-shadow {
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }

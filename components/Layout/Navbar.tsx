@@ -50,7 +50,7 @@ const Navbar = () => {
 			: navMenuVariantsSm;
 
 	return (
-		<nav className="sticky top-0 z-10 flex flex-col justify-between px-10 py-5 mb-20 transition border-b sm:flex-row sm:px-56 bg-background sm:items-center ">
+		<nav className="sticky top-0 z-10 flex flex-col justify-between px-10 py-5  transition border-b sm:flex-row sm:px-56 bg-background sm:items-center ">
 			<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
 			<BiMenuAltRight
 				cursor="pointer"

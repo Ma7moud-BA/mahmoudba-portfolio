@@ -69,7 +69,7 @@ const ProjectCard = ({
 					</div>
 				</motion.div>
 			) : (
-				<h3 className="font-extrabold sm:text-2xl lg:text-3xl text-xl     bottom-7 text_shadow   absolute z-0 lg:bottom-20 lg:-right-6 lg:-rotate-90 lg:origin-[0,0]">
+				<h3 className="font-extrabold sm:text-2xl lg:text-3xl text-xl     bottom-7 text-shadow   absolute z-0 lg:bottom-20 lg:-right-6 lg:-rotate-90 lg:origin-[0,0]">
 					{project.title}
 				</h3>
 			)}

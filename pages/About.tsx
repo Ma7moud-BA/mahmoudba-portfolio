@@ -9,7 +9,7 @@ const About = async () => {
 	const about_section = await getAboutSection();
 	const { small_text, large_text, _id, description, expertise } = about_section;
 	return (
-		<div className="pb-5 about section" id="about">
+		<div className="pb-5 about section " id="about">
 			<SectionTitle smallTextTitle={small_text} largeTextTitle={large_text} />
 			<SectionText text={description}></SectionText>
 
