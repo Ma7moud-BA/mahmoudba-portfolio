@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={ipm_flex_mono.className}>
-			<body className="">
+			<body>
 				<Toaster />
 				<ThemeProvider
 					attribute="class"

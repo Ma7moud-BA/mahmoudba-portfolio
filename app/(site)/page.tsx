@@ -8,7 +8,7 @@ import ContactMe from "@/pages/ContactMe";
 
 export default function Home() {
 	return (
-		<div className=" section-container  ">
+		<div className="section-container">
 			<Hero />
 			<About />
 			<Skills />

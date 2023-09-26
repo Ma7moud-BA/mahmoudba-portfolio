@@ -30,6 +30,9 @@ const ProjectCard = ({
 					? "lg:flex-[3.5] flex-[10] "
 					: "lg:flex-[0.5] flex-[2] "
 			}`}
+			onClick={() => {
+				handleClick(project.id);
+			}}
 		>
 			<Image
 				src={project.bannerUrl}
@@ -37,9 +40,6 @@ const ProjectCard = ({
 				width={300}
 				height={300}
 				className={`absolute object-cover w-full h-full rounded-xl`}
-				onClick={() => {
-					handleClick(project.id);
-				}}
 			/>
 			{active === project.id ? (
 				<motion.div
@@ -69,7 +69,7 @@ const ProjectCard = ({
 					</div>
 				</motion.div>
 			) : (
-				<h3 className="font-extrabold sm:text-2xl text-3xl text-white    absolute z-0 lg:bottom-20 lg:-right-6 lg:-rotate-90 lg:origin-[0,0]">
+				<h3 className="font-extrabold sm:text-2xl lg:text-3xl text-xl     bottom-7 text_shadow   absolute z-0 lg:bottom-20 lg:-right-6 lg:-rotate-90 lg:origin-[0,0]">
 					{project.title}
 				</h3>
 			)}

@@ -7,7 +7,7 @@ type ProjectsProps = {
 };
 
 const Projects = ({ projects }: ProjectsProps) => {
-	const [active, setActive] = useState<string>("");
+	const [active, setActive] = useState<string>(projects[0].id);
 
 	return (
 		<>

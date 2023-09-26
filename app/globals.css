@@ -54,14 +54,16 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground h-full;
 	}
 }
 body::-webkit-scrollbar {
 	@apply hidden;
 }
+/* if i enable this  the scroll to section will not function because this the scrolling wi be depending on this section scroll-bar not the body and iam calling the nav bar in the body */
+
 .section-container {
-	@apply h-screen snap-y snap-proximity z-0 overflow-scroll;
+	/* @apply h-screen snap-y snap-proximity z-0 overflow-scroll; */
 }
 .section-container::-webkit-scrollbar {
 	@apply hidden;
@@ -88,4 +90,8 @@ body::-webkit-scrollbar {
 	background-repeat: no-repeat no-repeat;
 	background-position: center center;
 	background-size: cover;
+}
+
+.text_shadow {
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }

@@ -6,6 +6,7 @@ import { ModeToggle } from "../ModeToggle";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { navMenuVariantsSm, navMenuVariants } from "@/lib/motions";
+// import { Link } from "react-scroll";
 import { Link } from "react-scroll";
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(true);
@@ -97,6 +98,7 @@ const Navbar = () => {
 				>
 					Contact
 				</Link>
+
 				<ModeToggle />
 			</motion.div>
 		</nav>
