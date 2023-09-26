@@ -2,7 +2,8 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -17,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { Textarea } from "./ui/textarea";
 import { BiMailSend } from "react-icons/bi";
+import { useRef, useState } from "react";
 
 const formSchema = z.object({
 	name: z.string().min(2, {
@@ -36,6 +38,8 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
+	const formRef = useRef<HTMLFormElement>(null);
+	const [isSending, setIsSending] = useState<boolean>(false);
 	// 1. Define your form.
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -47,15 +51,33 @@ export default function ProfileForm() {
 	});
 
 	// 2. Define a submit handler.
-	function onSubmit(values: z.infer<typeof formSchema>) {
-		// Do something with the form values.
-		// ✅ This will be type-safe and validated.
-		console.log(values);
+	async function onSubmit(values: z.infer<typeof formSchema>) {
+		try {
+			setIsSending(true);
+			const result = emailjs.sendForm(
+				"service_mpju219",
+				"template_rzr2anb",
+				formRef.current!,
+				"uQolgLvCE6JjFRtok"
+			);
+			const res = await toast.promise(result, {
+				loading: "Sending Email To MBA",
+				success: "Email Sent",
+				error: "Something Went Wrong!",
+			});
+			if (res.status === 200) {
+				setIsSending(false);
+			}
+		} catch (error: any) {
+			setIsSending(false);
+			console.log(error.text);
+		}
 	}
 
 	return (
 		<Form {...form}>
 			<form
+				ref={formRef}
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="p-10 mt-10 space-y-8 border rounded-lg bg-card"
 			>
@@ -120,6 +142,7 @@ export default function ProfileForm() {
 					)}
 				/>
 				<Button
+					disabled={isSending}
 					type="submit"
 					className="flex items-center justify-center gap-2 text-2xl font-bold"
 				>
