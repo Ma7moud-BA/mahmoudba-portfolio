@@ -5,11 +5,28 @@ import SectionText from "@/components/sectionText";
 import Card from "@/components/Card";
 import { getAboutSection } from "@/sanity/sanity.utils";
 import exp from "constants";
+import Image from "next/image";
+import aboutbg from "@/assets/svgs/aboutbg-1.svg";
+import aboutbgBottom from "@/assets/svgs/aboutBgBottom.svg";
 const About = async () => {
 	const about_section = await getAboutSection();
 	const { small_text, large_text, _id, description, expertise } = about_section;
 	return (
-		<div className="pb-5 about section " id="about">
+		<div className="pb-5 about section relative " id="about">
+			<Image
+				src={aboutbg}
+				width={500}
+				height={10000}
+				alt="hero bg"
+				className="absolute inset-0 -z-10  w-full h-full object-cover"
+			/>
+			<Image
+				src={aboutbgBottom}
+				width={500}
+				height={10000}
+				alt="hero bg"
+				className="absolute inset-0 -z-10  w-full h-full object-cover"
+			/>
 			<SectionTitle smallTextTitle={small_text} largeTextTitle={large_text} />
 			<SectionText text={description}></SectionText>
 
