@@ -14,7 +14,6 @@ import {
 const Skill = ({ title, iconUrl, fadeInDirection = "left" }: Tech) => {
 	return (
 		<motion.div
-			key={title}
 			initial="hidden"
 			whileInView={"show"}
 			variants={slideIn(fadeInDirection, "tween", 0.2, 1)}

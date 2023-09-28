@@ -16,7 +16,6 @@ const Card = ({ title, iconUrl, index }: CardProps) => {
 			initial="hidden"
 			whileInView={"show"}
 			viewport={{ once: false }}
-			key={title}
 			className="flex flex-col items-center justify-center px-20 py-12 border rounded-lg bg-card"
 		>
 			<Image

@@ -51,6 +51,7 @@ export type work_section = {
 export type Project = {
 	id: string;
 	title: string;
+	slug: string;
 	description: string;
 	bannerUrl: string;
 	images: string[];

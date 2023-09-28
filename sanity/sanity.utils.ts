@@ -68,7 +68,13 @@ export const getWorkSections = async (): Promise<work_section> => {
     _id,
 	small_text,
 	large_text,
-	projects[]{'id':_key,title,description,'bannerUrl':banner.asset->url,github_repo,content, 'images':images[].asset->url,demo_url}
+	projects[]{
+	title,'slug':slug.current,
+	'id':_key,title,description,
+	'bannerUrl':banner.asset->url,
+	github_repo,content,
+	 'images':images[].asset->url,
+	 demo_url}
 }`
 	);
 };

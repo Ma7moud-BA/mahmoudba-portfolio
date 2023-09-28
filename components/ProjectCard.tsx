@@ -19,7 +19,8 @@ const ProjectCard = ({
 	active,
 	handleClick,
 }: ProjectCardProps) => {
-	return (
+	console.log(project);
+	const ProjectCardExists = project ? (
 		<motion.div
 			initial="hidden"
 			whileInView={"show"}
@@ -74,7 +75,10 @@ const ProjectCard = ({
 				</h3>
 			)}
 		</motion.div>
+	) : (
+		<div>No Projects Added</div>
 	);
+	return ProjectCardExists;
 };
 
 export default ProjectCard;
