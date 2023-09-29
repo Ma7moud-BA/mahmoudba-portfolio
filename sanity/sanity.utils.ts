@@ -1,9 +1,11 @@
 import {
 	HeroSection,
 	Project,
+	Skill,
 	about_section,
 	skills_section,
 	work_section,
+	work_section_single,
 } from "@/types";
 import { createClient, groq } from "next-sanity";
 import config from "./client-config";
@@ -52,13 +54,25 @@ export const getSkillsSection = async (): Promise<skills_section> => {
     _id,
 	small_text,
 	large_text,
-	skills[]{
-		skill_title,"skill_icon_url":skill_icon.asset->url,'id':_key
-	},
+	
 	
 }`
 	);
 };
+export const getSkills = async (): Promise<Skill[]> => {
+	const client = createClient(config);
+
+	return client.fetch(
+		groq`*[_type=="skills"]{
+    _id,
+	skill_title,
+	"icon_url":icon.asset->url,
+	description,
+	docs_url
+}`
+	);
+};
+
 //! work Section:
 export const getWorkSections = async (): Promise<work_section> => {
 	const client = createClient(config);
@@ -73,8 +87,30 @@ export const getWorkSections = async (): Promise<work_section> => {
 	'id':_key,title,description,
 	'bannerUrl':banner.asset->url,
 	github_repo,content,
-	 'images':images[].asset->url,
+	 'images':images[].asset->url,technologies,
 	 demo_url}
 }`
+	);
+};
+
+export const getProjectBySlug = async (
+	slug: string
+): Promise<work_section_single> => {
+	const client = createClient(config);
+
+	return client.fetch(
+		groq`*[_type=="work_section"][0]{
+    _id,
+	small_text,
+	large_text,
+	projects[slug.current == $slug][0]{
+	title,'slug':slug.current,
+	'id':_key,title,description,
+	'bannerUrl':banner.asset->url,
+	github_repo,content,
+	 'images':images[].asset->url,technologies,
+	 demo_url}
+}`,
+		{ slug }
 	);
 };

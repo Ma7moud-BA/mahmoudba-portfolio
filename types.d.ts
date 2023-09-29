@@ -12,8 +12,8 @@ export type Techs = {
 	icon: StaticImageData;
 }[];
 export type Tech = {
-	title: string;
-	iconUrl: string;
+	skill: Skill;
+
 	fadeInDirection: "left" | "right";
 };
 
@@ -38,14 +38,25 @@ export type skills_section = {
 	_id: string;
 	small_text: string;
 	large_text: string;
-
-	skills: { skill_title: string; skill_icon_url: string; id: string }[];
+};
+export type Skill = {
+	_id: string;
+	skill_title: string;
+	icon_url: string;
+	description: string;
+	docs_url: string;
 };
 export type work_section = {
 	_id: string;
 	small_text: string;
 	large_text: string;
 	projects: Project[];
+};
+export type work_section_single = {
+	_id: string;
+	small_text: string;
+	large_text: string;
+	projects: Project;
 };
 
 export type Project = {
@@ -57,5 +68,6 @@ export type Project = {
 	images: string[];
 	demo_url: url;
 	github_repo: url;
+	technologies: string[];
 	content: PortableTextBlock[];
 };

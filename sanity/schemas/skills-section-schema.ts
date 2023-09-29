@@ -21,30 +21,6 @@ const skills_section = {
 				Rule.max(30).warning("Shorter text are usually better"),
 			],
 		},
-		{
-			name: "skills",
-			title: "Skills",
-			type: "array",
-			of: [
-				{
-					type: "object",
-					fields: [
-						{
-							name: "skill_title",
-							title: "Skill Title",
-							type: "string",
-							validation: (Rule: any) => Rule.required(),
-						},
-						{
-							name: "skill_icon",
-							title: "Skill Icon",
-							type: "image",
-							validation: (Rule: any) => Rule.required(),
-						},
-					],
-				},
-			],
-		},
 	],
 };
 export default skills_section;

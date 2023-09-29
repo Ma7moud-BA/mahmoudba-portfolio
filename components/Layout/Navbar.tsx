@@ -7,7 +7,8 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { navMenuVariantsSm, navMenuVariants } from "@/lib/motions";
 // import { Link } from "react-scroll";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(true);
 	const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
@@ -51,7 +52,9 @@ const Navbar = () => {
 
 	return (
 		<nav className="sticky top-0 z-10 flex flex-col justify-between px-10 py-5  transition border-b sm:flex-row sm:px-56 bg-background sm:items-center ">
-			<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
+			<Link href={"/"}>
+				<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
+			</Link>
 			<BiMenuAltRight
 				cursor="pointer"
 				size={40}
@@ -68,7 +71,7 @@ const Navbar = () => {
 					showMenu ? "block" : "hidden"
 				} `}
 			>
-				<Link
+				<ScrollLink
 					to="about"
 					spy={true}
 					smooth={true}
@@ -77,8 +80,8 @@ const Navbar = () => {
 					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					About
-				</Link>
-				<Link
+				</ScrollLink>
+				<ScrollLink
 					to="works"
 					spy={true}
 					smooth={true}
@@ -87,8 +90,8 @@ const Navbar = () => {
 					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					Works
-				</Link>
-				<Link
+				</ScrollLink>
+				<ScrollLink
 					to="contact"
 					spy={true}
 					smooth={true}
@@ -97,7 +100,7 @@ const Navbar = () => {
 					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
 				>
 					Contact
-				</Link>
+				</ScrollLink>
 
 				<ModeToggle />
 			</motion.div>

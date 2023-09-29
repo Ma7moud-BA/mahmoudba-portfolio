@@ -56,6 +56,13 @@ const work_section = {
 							validation: (Rule: any) => Rule.required(),
 						},
 						{
+							name: "techs",
+							title: "Tech Used",
+							type: "array",
+							of: [{ type: "reference", to: [{ type: "skills" }] }],
+						},
+
+						{
 							name: "banner",
 							title: "Banner Image",
 							type: "image",

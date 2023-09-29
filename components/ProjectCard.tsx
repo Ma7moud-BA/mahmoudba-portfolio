@@ -19,7 +19,6 @@ const ProjectCard = ({
 	active,
 	handleClick,
 }: ProjectCardProps) => {
-	console.log(project);
 	const ProjectCardExists = project ? (
 		<motion.div
 			initial="hidden"
@@ -40,7 +39,7 @@ const ProjectCard = ({
 				alt={project.title}
 				width={300}
 				height={300}
-				className={`absolute object-cover w-full h-full rounded-xl`}
+				className="absolute object-cover w-full h-full rounded-xl "
 			/>
 			{active === project.id ? (
 				<motion.div
@@ -49,12 +48,14 @@ const ProjectCard = ({
 					whileInView={"show"}
 					className="absolute pt-2  bottom-0 w-full lg:py-8  px-4 justify-start flex   rounded-b-xl bg-[rgba(1,1,1,.5)]"
 				>
-					<div className="flex-1 ">
-						<h2 className="text-xl font-bold leading-5 text-white uppercase">
-							{project.title}
-						</h2>
-						<p className="text-white">{project.description}</p>
-						<div className="flex items-center gap-2 mt-2 font-extrabold text-white">
+					<div className="flex-1  ">
+						<Link href={project.slug}>
+							<h2 className="text-xl font-bold leading-5 text-white uppercase underline hover:text- transition hover:scale-105 duration-500 ">
+								{project.title}
+							</h2>
+						</Link>
+						<p className="text-white cursor-auto">{project.description}</p>
+						<div className="flex items-center gap-2 mt-2 font-extrabold text-white cursor-auto">
 							<div className="w-16 h-16 mb-4 rounded-lg   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
 								<Link href={project.demo_url}>
 									<VscLiveShare color="white" size={35} />
