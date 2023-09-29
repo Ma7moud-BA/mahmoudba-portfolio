@@ -8,7 +8,6 @@ import skillsBg from "@/assets/svgs/skillsBg.svg";
 const Skills = async () => {
 	const skill_section = await getSkillsSection();
 	const skills = await getSkills();
-	console.log("skills", skills);
 	const { small_text, large_text } = skill_section;
 
 	return (

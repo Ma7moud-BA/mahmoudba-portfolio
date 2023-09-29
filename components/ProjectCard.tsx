@@ -26,12 +26,12 @@ const ProjectCard = ({
 			viewport={{ once: false }}
 			variants={slideIn("left", "spring", index * 0.4, 1)}
 			className={`relative flex max-h-[500px] items-center justify-center min-w-[150px] transition-[flex] duration-500 ease-out cursor-pointer ${
-				active === project.id
+				active === project._id
 					? "lg:flex-[3.5] flex-[10] "
 					: "lg:flex-[0.5] flex-[2] "
 			}`}
 			onClick={() => {
-				handleClick(project.id);
+				handleClick(project._id);
 			}}
 		>
 			<Image
@@ -41,7 +41,7 @@ const ProjectCard = ({
 				height={300}
 				className="absolute object-cover w-full h-full rounded-xl "
 			/>
-			{active === project.id ? (
+			{active === project._id ? (
 				<motion.div
 					variants={fadeIn("down", "spring", 0.1, 0.5)}
 					initial="hidden"

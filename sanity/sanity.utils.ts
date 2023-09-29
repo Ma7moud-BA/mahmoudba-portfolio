@@ -5,7 +5,6 @@ import {
 	about_section,
 	skills_section,
 	work_section,
-	work_section_single,
 } from "@/types";
 import { createClient, groq } from "next-sanity";
 import config from "./client-config";
@@ -82,34 +81,46 @@ export const getWorkSections = async (): Promise<work_section> => {
     _id,
 	small_text,
 	large_text,
-	projects[]{
-	title,'slug':slug.current,
-	'id':_key,title,description,
-	'bannerUrl':banner.asset->url,
-	github_repo,content,
-	 'images':images[].asset->url,technologies,
-	 demo_url}
+
 }`
 	);
 };
 
-export const getProjectBySlug = async (
-	slug: string
-): Promise<work_section_single> => {
+export const getProjects = async (): Promise<Project[]> => {
 	const client = createClient(config);
 
 	return client.fetch(
-		groq`*[_type=="work_section"][0]{
-    _id,
-	small_text,
-	large_text,
-	projects[slug.current == $slug][0]{
-	title,'slug':slug.current,
-	'id':_key,title,description,
+		groq`*[_type=="projects"]{
+
+	
+	title,
+	'slug':slug.current,
+	_id,
+	description,
 	'bannerUrl':banner.asset->url,
 	github_repo,content,
-	 'images':images[].asset->url,technologies,
-	 demo_url}
+	 'images':images[].asset->url,
+	 demo_url,
+	 'techs': *[_type == 'skills' && references(^._id)]
+        
+}`
+	);
+};
+
+export const getProjectBySlug = async (slug: string): Promise<Project> => {
+	const client = createClient(config);
+
+	return client.fetch(
+		groq`*[_type=="projects" && slug.current == $slug][0]{
+	title,
+	'slug':slug.current,
+	_id,
+	description,
+	'bannerUrl':banner.asset->url,
+	github_repo,content,
+	 'images':images[].asset->url,
+	 demo_url,
+		 'techs': *[_type == 'skills' && _ref ==^._id]
 }`,
 		{ slug }
 	);

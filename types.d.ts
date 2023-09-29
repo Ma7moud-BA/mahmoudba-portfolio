@@ -50,17 +50,10 @@ export type work_section = {
 	_id: string;
 	small_text: string;
 	large_text: string;
-	projects: Project[];
-};
-export type work_section_single = {
-	_id: string;
-	small_text: string;
-	large_text: string;
-	projects: Project;
 };
 
 export type Project = {
-	id: string;
+	_id: string;
 	title: string;
 	slug: string;
 	description: string;
@@ -68,6 +61,6 @@ export type Project = {
 	images: string[];
 	demo_url: url;
 	github_repo: url;
-	technologies: string[];
+	techs: {}[];
 	content: PortableTextBlock[];
 };
