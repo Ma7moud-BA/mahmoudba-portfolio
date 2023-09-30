@@ -1,3 +1,4 @@
+import Skill from "@/components/Skill";
 import { getProjectBySlug } from "@/sanity/sanity.utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -54,16 +55,15 @@ const page = async ({ params }: Props) => {
 				})}
 			</div>
 			<h2 className="font-bold text-3xl my-2 capitalize">Technologies Used:</h2>
-			{/* <div className="flex flex-wrap gap-5 mb-8">
-				{project.technologies?.map((tech) => (
-					<div
-						className="p-5 bg-card border-border shadow-sm shadow-primary font-bold rounded-md"
-						key={tech}
-					>
-						{tech}
-					</div>
+			<div className="flex flex-wrap gap-5 mb-8">
+				{project.techs?.map((skill, i) => (
+					<Skill
+						fadeInDirection={i < 8 ? "left" : "right"}
+						skill={skill}
+						key={skill._id}
+					/>
 				))}
-			</div> */}
+			</div>
 
 			<h2 className="font-bold text-3xl my-2">Project Details:</h2>
 

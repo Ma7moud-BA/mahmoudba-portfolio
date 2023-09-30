@@ -62,9 +62,9 @@ body::-webkit-scrollbar {
 }
 /* if i enable this  the scroll to section will not function because this the scrolling wi be depending on this section scroll-bar not the body and iam calling the nav bar in the body */
 
-.section-container {
-	/* @apply h-screen snap-y snap-proximity z-0 overflow-scroll; */
-}
+/* .section-container {
+	@apply h-screen snap-y snap-proximity z-0 overflow-scroll;
+} */
 .section-container::-webkit-scrollbar {
 	@apply hidden;
 }
@@ -73,12 +73,12 @@ body::-webkit-scrollbar {
 	@apply lg:h-screen px-10 sm:px-56 snap-start min-h-screen;
 }
 
-.hero {
-	/* background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 1920 1080' width='1920' height='1080' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Crect x='0' y='0' width='1920' height='1080' fill='%23fff'%3E%3C/rect%3E%3Cpath d='M0 664L160 666.3C320 668.7 640 673.3 960 699.2C1280 725 1600 772 1760 795.5L1920 819L1920 1081L1760 1081C1600 1081 1280 1081 960 1081C640 1081 320 1081 160 1081L0 1081Z' fill='%23f4f4f5'%3E%3C/path%3E%3Cpath d='M0 964L160 965.3C320 966.7 640 969.3 960 944.5C1280 919.7 1600 867.3 1760 841.2L1920 815L1920 1081L1760 1081C1600 1081 1280 1081 960 1081C640 1081 320 1081 160 1081L0 1081Z' fill='%23e11d48'%3E%3C/path%3E%3C/svg%3E");
+/* .hero {
+	background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 1920 1080' width='1920' height='1080' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Crect x='0' y='0' width='1920' height='1080' fill='%23fff'%3E%3C/rect%3E%3Cpath d='M0 664L160 666.3C320 668.7 640 673.3 960 699.2C1280 725 1600 772 1760 795.5L1920 819L1920 1081L1760 1081C1600 1081 1280 1081 960 1081C640 1081 320 1081 160 1081L0 1081Z' fill='%23f4f4f5'%3E%3C/path%3E%3Cpath d='M0 964L160 965.3C320 966.7 640 969.3 960 944.5C1280 919.7 1600 867.3 1760 841.2L1920 815L1920 1081L1760 1081C1600 1081 1280 1081 960 1081C640 1081 320 1081 160 1081L0 1081Z' fill='%23e11d48'%3E%3C/path%3E%3C/svg%3E");
 	background-repeat: no-repeat no-repeat;
 	background-position: center center;
-	background-size: cover; */
-}
+	background-size: cover;
+} */
 /* .about {
 	background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 1920 1080' width='1920' height='1080' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Cpath d='M0 174L160 152.3C320 130.7 640 87.3 960 117.8C1280 148.3 1600 252.7 1760 304.8L1920 357L1920 0L1760 0C1600 0 1280 0 960 0C640 0 320 0 160 0L0 0Z' fill='%23e11d48'%3E%3C/path%3E%3Cpath d='M0 962L160 906.2C320 850.3 640 738.7 960 742.3C1280 746 1600 865 1760 924.5L1920 984L1920 355L1760 302.8C1600 250.7 1280 146.3 960 115.8C640 85.3 320 128.7 160 150.3L0 172Z' fill='%23f4f4f5'%3E%3C/path%3E%3Cpath d='M0 1081L160 1081C320 1081 640 1081 960 1081C1280 1081 1600 1081 1760 1081L1920 1081L1920 982L1760 922.5C1600 863 1280 744 960 740.3C640 736.7 320 848.3 160 904.2L0 960Z' fill='%23e11d48'%3E%3C/path%3E%3C/svg%3E");
 	background-repeat: no-repeat no-repeat;

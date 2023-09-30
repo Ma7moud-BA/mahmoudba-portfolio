@@ -26,7 +26,7 @@ const Skill = ({ skill, fadeInDirection = "left" }: Tech) => {
 				<HoverCardTrigger asChild>
 					<div className="-z-10 relative">
 						<Image
-							src={skill.icon_url}
+							src={skill.icon}
 							width={100}
 							height={100}
 							alt={skill.skill_title}
@@ -38,7 +38,7 @@ const Skill = ({ skill, fadeInDirection = "left" }: Tech) => {
 				<HoverCardContent className="w-80 !z-[9999] ">
 					<div className="flex  justify-between space-x-4 !z-50">
 						<Avatar>
-							<AvatarImage src={skill.icon_url} />
+							<AvatarImage src={skill.icon} />
 							<AvatarFallback>{skill.skill_title}</AvatarFallback>
 						</Avatar>
 						<div className="space-y-1 !z-50">

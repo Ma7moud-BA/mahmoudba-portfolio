@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={ipm_flex_mono.className}>
-			<body className=" ">
+			<body>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

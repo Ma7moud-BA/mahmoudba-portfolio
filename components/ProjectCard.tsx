@@ -50,7 +50,7 @@ const ProjectCard = ({
 				>
 					<div className="flex-1  ">
 						<Link href={project.slug}>
-							<h2 className="text-xl font-bold leading-5 text-white uppercase underline hover:text- transition hover:scale-105 duration-500 ">
+							<h2 className="text-xl font-bold leading-5 text-white uppercase underline hover:text- transition hover:text-primary duration-500 ">
 								{project.title}
 							</h2>
 						</Link>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Skills from "@/pages/Skills";
 import Works from "@/pages/Works";
 import ContactMe from "@/pages/ContactMe";
+import React from "react";
 
 export default function Home() {
 	return (

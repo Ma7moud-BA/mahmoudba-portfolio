@@ -32,7 +32,7 @@ export type about_section = {
 	small_text: string;
 	large_text: string;
 	description: description;
-	expertise: { expert_title: string; expert_icon_url: url }[];
+	expertise: { expert_title: string; expert_icon_url: url; id: string }[];
 };
 export type skills_section = {
 	_id: string;
@@ -42,7 +42,7 @@ export type skills_section = {
 export type Skill = {
 	_id: string;
 	skill_title: string;
-	icon_url: string;
+	icon: string;
 	description: string;
 	docs_url: string;
 };
@@ -61,6 +61,6 @@ export type Project = {
 	images: string[];
 	demo_url: url;
 	github_repo: url;
-	techs: {}[];
+	techs: Skill[];
 	content: PortableTextBlock[];
 };

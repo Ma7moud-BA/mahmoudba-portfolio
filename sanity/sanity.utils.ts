@@ -36,7 +36,8 @@ export const getAboutSection = async (): Promise<about_section> => {
       description,
       expertise[]{
         expert_title,
-        'expert_icon_url': expert_icon.asset->url
+        'expert_icon_url': expert_icon.asset->url,
+		'id':_key
 
       },
     }
@@ -65,7 +66,7 @@ export const getSkills = async (): Promise<Skill[]> => {
 		groq`*[_type=="skills"]{
     _id,
 	skill_title,
-	"icon_url":icon.asset->url,
+	"icon":icon.asset->url,
 	description,
 	docs_url
 }`
@@ -101,7 +102,8 @@ export const getProjects = async (): Promise<Project[]> => {
 	github_repo,content,
 	 'images':images[].asset->url,
 	 demo_url,
-	 'techs': *[_type == 'skills' && references(^._id)]
+	techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
+
         
 }`
 	);
@@ -120,7 +122,7 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 	github_repo,content,
 	 'images':images[].asset->url,
 	 demo_url,
-		 'techs': *[_type == 'skills' && _ref ==^._id]
+		techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
 }`,
 		{ slug }
 	);
