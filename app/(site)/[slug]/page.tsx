@@ -8,9 +8,74 @@ import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { VscLiveShare } from "react-icons/vsc";
 type Props = { params: { slug: string } };
+type PortableTextComponents = {
+	block: {
+		h1: React.FC;
+		h2: React.FC;
+		blockquote: React.FC;
+		customHeading: React.FC;
+	};
+	list: {
+		bullet: React.FC;
+		number: React.FC;
+	};
+	listItem: {
+		bullet: React.FC;
+		number: React.FC;
+	};
+};
 const page = async ({ params }: Props) => {
 	const { slug } = params;
 	const project = await getProjectBySlug(slug);
+
+	const CustomH1: React.FC = ({ children }: any) => (
+		<h1 className="text-3xl font-bold my-2">{children}</h1>
+	);
+
+	const CustomH2: React.FC = ({ children }: any) => (
+		<h2 className="text-xl font-bold my-2">{children}</h2>
+	);
+
+	const CustomBlockquote: React.FC = ({ children }: any) => (
+		<blockquote className="border-l-purple-500">{children}</blockquote>
+	);
+
+	const CustomCustomHeading: React.FC = ({ children }: any) => (
+		<h2 className="text-lg text-primary text-purple-700">{children}</h2>
+	);
+
+	const CustomBulletList: React.FC = ({ children }: any) => (
+		<ul className="mb-10">{children}</ul>
+	);
+
+	const CustomNumberList: React.FC = ({ children }: any) => (
+		<ol className="mb-10">{children}</ol>
+	);
+
+	const CustomBulletListItem: React.FC = ({ children }: any) => (
+		<li style={{ listStyleType: "circle" }}>{children}</li>
+	);
+
+	const CustomNumberListItem: React.FC = ({ children }: any) => (
+		<li style={{ listStyleType: "lower-roman" }}>{children}</li>
+	);
+
+	const components: PortableTextComponents = {
+		block: {
+			h1: CustomH1,
+			h2: CustomH2,
+			blockquote: CustomBlockquote,
+			customHeading: CustomCustomHeading,
+		},
+		list: {
+			bullet: CustomBulletList,
+			number: CustomNumberList,
+		},
+		listItem: {
+			bullet: CustomBulletListItem,
+			number: CustomNumberListItem,
+		},
+	};
 	return (
 		<div className="section ">
 			<div className="flex relative flex-wrap justify-between">
@@ -45,15 +110,15 @@ const page = async ({ params }: Props) => {
 							key={`${img}`}
 							src={img}
 							alt={project.title}
-							width={500}
-							height={500}
-							className="object-cover min-w-[500px] min-h-[500px] rounded-md border-border shadow-md shadow-primary"
+							width={300}
+							height={300}
+							className="object-cover min-w-[300px] min-h-[300px] rounded-md border-border shadow-md shadow-primary"
 						/>
 					);
 				})}
 			</div>
 			<h2 className="font-bold text-3xl my-2 capitalize">Technologies Used:</h2>
-			<div className="flex flex-wrap gap-5 mb-8">
+			<div className="flex flex-wrap gap-5 mb-8 bg-accent p-10 rounded-md">
 				{project.techs?.map((skill, i) => (
 					<Skill
 						fadeInDirection={i < 8 ? "left" : "right"}
@@ -65,7 +130,7 @@ const page = async ({ params }: Props) => {
 
 			<h2 className="font-bold text-3xl my-2">Project Details:</h2>
 
-			<PortableText value={project.content} />
+			<PortableText value={project.content} components={components} />
 		</div>
 	);
 };

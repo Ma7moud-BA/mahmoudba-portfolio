@@ -74,7 +74,7 @@ body {
 }
 
 .section {
-	@apply lg:h-screen px-10 sm:px-56 snap-start min-h-screen;
+	@apply lg:h-screen px-10 sm:px-56 snap-start min-h-screen py-10;
 }
 
 /* .hero {

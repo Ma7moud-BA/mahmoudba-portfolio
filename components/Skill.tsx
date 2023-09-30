@@ -24,7 +24,7 @@ const Skill = ({ skill, fadeInDirection = "left" }: Tech) => {
 		>
 			<HoverCard>
 				<HoverCardTrigger asChild>
-					<div className="-z-10 relative">
+					<div className="-z-10 w-full h-full flex items-center relative   ">
 						<Image
 							src={skill.icon}
 							width={100}

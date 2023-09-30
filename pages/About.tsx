@@ -20,13 +20,13 @@ const About = async () => {
 				alt="hero bg"
 				className="absolute inset-0 -z-10  w-full h-full object-cover"
 			/>
-			<Image
+			{/* <Image
 				src={aboutbgBottom}
 				width={500}
 				height={10000}
 				alt="hero bg"
 				className="absolute inset-0 -z-10  w-full h-full object-cover"
-			/>
+			/> */}
 			<SectionTitle smallTextTitle={small_text} largeTextTitle={large_text} />
 			<SectionText text={description}></SectionText>
 
