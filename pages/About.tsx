@@ -11,7 +11,6 @@ import aboutbgBottom from "@/assets/svgs/aboutBgBottom.svg";
 const About = async () => {
 	const about_section = await getAboutSection();
 	const { small_text, large_text, _id, description, expertise } = about_section;
-	console.log(about_section);
 	return (
 		<div className="pb-5 about section relative " id="about">
 			<Image

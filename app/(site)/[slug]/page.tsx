@@ -11,8 +11,6 @@ type Props = { params: { slug: string } };
 const page = async ({ params }: Props) => {
 	const { slug } = params;
 	const project = await getProjectBySlug(slug);
-	//todo:fetch the techs with the project
-	console.log(project.techs);
 	return (
 		<div className="section ">
 			<div className="flex relative flex-wrap justify-between">

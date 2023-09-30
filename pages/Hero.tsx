@@ -5,12 +5,6 @@ import Image from "next/image";
 import React from "react";
 import heroBg from "@/assets/svgs/herobg-5.svg";
 import heroBgDark from "@/assets/svgs/herobg-dark-5.svg";
-/**
- * todo: add separate page for each project to showcase it
- * todo: change the background svg for each light and dark mode
- * todo: add resume to the site
- *
- */
 
 const Hero = async () => {
 	const hero_section = await getHeroSection();
