@@ -74,7 +74,10 @@ body {
 }
 
 .section {
-	@apply lg:h-screen px-10 sm:px-56 snap-start min-h-screen py-10;
+	@apply lg:h-screen  padding_x snap-start min-h-screen py-10;
+}
+.padding_x {
+	@apply px-8 xl:px-56 md:px-28;
 }
 
 /* .hero {

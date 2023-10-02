@@ -24,7 +24,7 @@ const Skill = ({ skill, fadeInDirection = "left" }: Tech) => {
 		>
 			<HoverCard>
 				<HoverCardTrigger asChild>
-					<div className="-z-10 w-full h-full flex items-center relative   ">
+					<div className=" w-full h-full flex items-center relative   ">
 						<Image
 							src={skill.icon}
 							width={100}
@@ -34,14 +34,14 @@ const Skill = ({ skill, fadeInDirection = "left" }: Tech) => {
 					</div>
 				</HoverCardTrigger>
 
-				<HoverCardContent className="w-80 !z-[9999] ">
-					<div className="flex  justify-between space-x-4 !z-50">
-						<Avatar>
+				<HoverCardContent side="top" className="w-80  " style={{ zIndex: 999 }}>
+					<div className="flex  justify-between space-x-4 ">
+						<Avatar className="z-[999]">
 							<AvatarImage src={skill.icon} />
 							<AvatarFallback>{skill.skill_title}</AvatarFallback>
 						</Avatar>
-						<div className="space-y-1 !z-50">
-							<h4 className="text-sm font-semibold">@{skill.skill_title}</h4>
+						<div className="space-y-1 ">
+							<h4 className="text-sm font-semibold">{skill.skill_title}</h4>
 							<p className="text-sm">{skill?.description} </p>
 							<div className="flex items-center pt-2">
 								<IoDocumentTextOutline size={20} />

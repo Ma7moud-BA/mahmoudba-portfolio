@@ -25,7 +25,7 @@ const ProjectCard = ({
 			whileInView={"show"}
 			viewport={{ once: false }}
 			variants={slideIn("left", "spring", index * 0.4, 1)}
-			className={`relative flex max-h-[500px] items-center justify-center min-w-[150px] transition-[flex] duration-500 ease-out cursor-pointer ${
+			className={`relative shadow-md rounded-lg shadow-primary  flex max-h-[500px] items-center justify-center min-w-[150px] transition-[flex] duration-500 ease-out cursor-pointer ${
 				active === project._id
 					? "lg:flex-[3.5] flex-[10] "
 					: "lg:flex-[0.5] flex-[2] "
@@ -37,8 +37,8 @@ const ProjectCard = ({
 			<Image
 				src={project.bannerUrl}
 				alt={project.title}
-				width={300}
-				height={300}
+				width={2000}
+				height={2000}
 				className="absolute object-cover w-full h-full rounded-xl "
 			/>
 			{active === project._id ? (

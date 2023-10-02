@@ -4,6 +4,7 @@ import Skill from "@/components/Skill";
 import SectionTitle from "@/components/SectionTitle";
 import { getSkills, getSkillsSection } from "@/sanity/sanity.utils";
 import Image from "next/image";
+import Skill2 from "@/components/Skill2";
 const Skills = async () => {
 	const skill_section = await getSkillsSection();
 	const skills = await getSkills();

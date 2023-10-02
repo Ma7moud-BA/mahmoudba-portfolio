@@ -23,7 +23,7 @@ const Works = async () => {
 				className="absolute top-0 left-0 right-0 -z-10 w-full h-full object-cover"
 			/> */}
 			<SectionTitle smallTextTitle={small_text} largeTextTitle={large_text} />
-			<div className="mt-12 flex lg:flex-row flex-col min-h-[70vh] gap-5">
+			<div className="mt-12 flex lg:flex-row flex-col min-h-[70vh] gap-2">
 				<Projects projects={projects} />
 			</div>
 		</div>

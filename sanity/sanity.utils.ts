@@ -2,6 +2,7 @@ import {
 	HeroSection,
 	Project,
 	Skill,
+	Social,
 	about_section,
 	skills_section,
 	work_section,
@@ -125,5 +126,20 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 		techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
 }`,
 		{ slug }
+	);
+};
+// socials
+export const getSocials = async (): Promise<Social[]> => {
+	const client = createClient(config);
+
+	return client.fetch(
+		groq`*[_type=="socials"]{
+	_id,
+	title,
+	'icon':icon.asset->url,
+	link,
+	
+	additionalInfo
+}`
 	);
 };

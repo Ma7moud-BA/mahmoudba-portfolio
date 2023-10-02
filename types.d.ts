@@ -59,8 +59,16 @@ export type Project = {
 	description: string;
 	bannerUrl: string;
 	images: string[];
-	demo_url: url;
-	github_repo: url;
+	demo_url: URL;
+	github_repo: URL;
 	techs: Skill[];
 	content: PortableTextBlock[];
+};
+
+export type Social = {
+	_id: string;
+	title: string;
+	icon: string;
+	link: URL;
+	additionalInfo: string;
 };

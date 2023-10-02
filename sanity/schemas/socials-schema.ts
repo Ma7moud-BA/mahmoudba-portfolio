@@ -1,6 +1,6 @@
 const socials_schema = {
 	name: "socials",
-	tital: "Socials",
+	title: "Socials",
 	type: "document",
 	fields: [
 		{

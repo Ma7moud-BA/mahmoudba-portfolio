@@ -14,20 +14,23 @@ const Navbar = () => {
 	const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
 	// Function to handle screen size changes and update showMenu state
-	const handleScreenSizeChange = () => {
-		if (window?.innerWidth >= 640) {
-			setShowMenu(true);
-		}
-		if (window?.innerWidth <= 640) {
-			setShowMenu(false);
-		}
-	};
 
+	// const handleScreenSizeChange = () => {
+	// 	if (window?.innerWidth >= 640) {
+	// 		setShowMenu(true);
+	// 	}
+	// 	if (window?.innerWidth <= 640) {
+	// 		setShowMenu(false);
+	// 	}
+	// };
 	useEffect(() => {
 		// Function to handle screen size changes and update showMenu state
 		const handleScreenSizeChange = () => {
-			if (typeof window !== "undefined") {
-				setWindowWidth(window.innerWidth);
+			if (window?.innerWidth >= 640) {
+				setShowMenu(true);
+			}
+			if (window?.innerWidth <= 640) {
+				setShowMenu(false);
 			}
 		};
 
@@ -51,7 +54,7 @@ const Navbar = () => {
 			: navMenuVariantsSm;
 
 	return (
-		<nav className="sticky top-0 z-10 flex flex-col justify-between px-10 py-5  transition border-b sm:flex-row sm:px-56 bg-background sm:items-center ">
+		<nav className="sticky top-0  flex flex-col justify-between padding_x py-5  transition border-b sm:flex-row  bg-background sm:items-center z-[999] ">
 			<Link href={"/"}>
 				<h2 className="text-4xl font-extrabold ">MahmoudBA.</h2>
 			</Link>
@@ -77,7 +80,7 @@ const Navbar = () => {
 					smooth={true}
 					offset={-100}
 					duration={400}
-					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
+					className="font-bold transition-all duration-500 cursor-pointer sm:text-xl lg:text-3xl hover:text-primary hover:scale-110"
 				>
 					About
 				</ScrollLink>
@@ -87,7 +90,7 @@ const Navbar = () => {
 					smooth={true}
 					offset={-100}
 					duration={400}
-					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
+					className="font-bold transition-all duration-500 cursor-pointer sm:text-xl lg:text-3xl hover:text-primary hover:scale-110"
 				>
 					Works
 				</ScrollLink>
@@ -97,7 +100,7 @@ const Navbar = () => {
 					smooth={true}
 					offset={-100}
 					duration={500}
-					className="font-bold transition-all duration-500 cursor-pointer sm:text-3xl hover:text-primary hover:scale-110"
+					className="font-bold transition-all duration-500 cursor-pointer sm:text-xl  lg:text-3xl hover:text-primary hover:scale-110"
 				>
 					Contact
 				</ScrollLink>
