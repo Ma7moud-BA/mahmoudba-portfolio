@@ -20,7 +20,7 @@ const About = async () => {
 			<SectionTitle smallTextTitle={small_text} largeTextTitle={large_text} />
 			<SectionText text={description}></SectionText>
 
-			<div className="grid items-center justify-center gap-20 mt-10 sm:grid-cols-2 md:grid-cols-3">
+			<div className="grid items-center justify-center gap-20 mt-10  sm:grid-cols-2 md:grid-cols-3">
 				{expertise.map((expert, index) => (
 					<Card
 						title={expert.expert_title}
