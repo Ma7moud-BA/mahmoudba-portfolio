@@ -1,12 +1,9 @@
 "use client";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import React, { useState, useEffect } from "react";
-import { NavigationMenu } from "../ui/navigation-menu";
 import { ModeToggle } from "../ModeToggle";
 import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { navMenuVariantsSm, navMenuVariants } from "@/lib/motions";
-// import { Link } from "react-scroll";
 import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
 const Navbar = () => {

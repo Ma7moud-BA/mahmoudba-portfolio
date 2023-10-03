@@ -14,6 +14,7 @@ const Hero = async () => {
 	//todo:add resume
 	//todo:add a new section for the 3d projects
 	//todo:amy add arduino projects
+	//upload from production
 	return (
 		<div className="flex flex-col section hero xl:flex-row pt-20 relative ">
 			<Image
