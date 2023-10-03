@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import skillsBg from "@/assets/svgs/skillsBg.svg";
-
-import { projects } from "@/contants/constants";
 
 import SectionTitle from "@/components/SectionTitle";
 import Projects from "@/components/Projects";
 import { getProjects, getWorkSections } from "@/sanity/sanity.utils";
-import Image from "next/image";
 
 const Works = async () => {
 	const work_section = await getWorkSections();

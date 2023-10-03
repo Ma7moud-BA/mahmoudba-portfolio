@@ -1,13 +1,10 @@
 import React from "react";
 import SectionTitle from "@/components/SectionTitle";
-import { cards } from "@/contants/constants";
 import SectionText from "@/components/sectionText";
 import Card from "@/components/Card";
 import { getAboutSection } from "@/sanity/sanity.utils";
-import exp from "constants";
 import Image from "next/image";
 import aboutbg from "@/assets/svgs/aboutbg-1.svg";
-import aboutbgBottom from "@/assets/svgs/aboutBgBottom.svg";
 const About = async () => {
 	const about_section = await getAboutSection();
 	const { small_text, large_text, _id, description, expertise } = about_section;
