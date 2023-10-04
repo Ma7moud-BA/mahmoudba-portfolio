@@ -79,7 +79,9 @@ const page = async ({ params }: Props) => {
 	return (
 		<div className="section ">
 			<div className="flex relative flex-wrap justify-between">
-				<h1 className="text-4xl font-bold my-10 ">{project.title}</h1>
+				<h1 className="text-4xl font-bold my-10 ">
+					{project.title}({project.projectType} Project)
+				</h1>
 				<div className="flex items-center gap-2 mt-2 font-extrabold text-white cursor-auto">
 					<Link href={project.demo_url}>
 						<div className="w-16 h-16 mb-4 rounded-lg     shadow-md text-primary cursor-pointer   bg-muted  hover:brightness-110  transition flex items-center justify-center">
@@ -87,11 +89,13 @@ const page = async ({ params }: Props) => {
 						</div>
 					</Link>
 
-					<Link href={project.github_repo}>
-						<div className="w-16 h-16 mb-4 rounded-lg flex-2   shadow-md text-primary cursor-pointer  bg-muted  hover:brightness-110  border-border   transition flex items-center justify-center">
-							<AiFillGithub size={35} />
-						</div>
-					</Link>
+					{project.github_repo && (
+						<Link href={project.github_repo}>
+							<div className="w-16 h-16 mb-4 rounded-lg flex-2   shadow-md text-primary cursor-pointer  bg-muted  hover:brightness-110  border-border   transition flex items-center justify-center">
+								<AiFillGithub size={35} />
+							</div>
+						</Link>
+					)}
 				</div>
 			</div>
 			<Image
@@ -100,7 +104,21 @@ const page = async ({ params }: Props) => {
 				width={1000}
 				height={1000}
 				className="object-cover min-w-[300px] min-h-[300px] mx-auto mb-8 rounded-md border-border shadow-md shadow-primary"
-			></Image>
+			/>
+			{/* render the sketchfab embeded string */}
+			{project.sketchfabEmbed && (
+				<>
+					<h1 className="text-4xl font-bold my-10 ">3D Preview:</h1>
+
+					<div className=" w-full flex justify-center ">
+						<div
+							dangerouslySetInnerHTML={{
+								__html: project.sketchfabEmbed,
+							}}
+						/>
+					</div>
+				</>
+			)}
 			<h2 className="font-bold text-3xl my-2"> Description:</h2>
 			<p className="mb-8 mt-2">{project.description}</p>
 			<div className="flex flex-wrap gap-5 justify-center mb-5 ">
@@ -110,9 +128,9 @@ const page = async ({ params }: Props) => {
 							key={`${img}`}
 							src={img}
 							alt={project.title}
-							width={300}
-							height={300}
-							className="object-cover min-w-[300px] min-h-[300px] rounded-md border-border shadow-md shadow-primary"
+							width={1000}
+							height={1000}
+							className="object-cover min-w-[300px] min-h-[300px]  max-w-md rounded-md border-border shadow-md shadow-primary"
 						/>
 					);
 				})}
@@ -128,9 +146,12 @@ const page = async ({ params }: Props) => {
 				))}
 			</div>
 
-			<h2 className="font-bold text-3xl my-2">Project Details:</h2>
-
-			<PortableText value={project.content} components={components} />
+			{project.content && (
+				<>
+					<h2 className="font-bold text-3xl my-2">Project Details:</h2>
+					<PortableText value={project.content} components={components} />
+				</>
+			)}
 		</div>
 	);
 };

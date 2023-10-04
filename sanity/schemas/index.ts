@@ -5,6 +5,7 @@ import work_section from "./work-schema";
 import skills_schema from "./skills-schema";
 import projects_schema from "./projects-schema";
 import socials_schema from "./socials-schema";
+import resume_schema from "./resume-schema";
 
 const schemas = [
 	work_section,
@@ -14,6 +15,7 @@ const schemas = [
 	skills_section,
 	projects_schema,
 	socials_schema,
+	resume_schema,
 ];
 
 export default schemas;

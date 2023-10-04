@@ -55,19 +55,30 @@ const ProjectCard = ({
 							</h2>
 						</Link>
 						<p className="text-white cursor-auto">{project.description}</p>
-						<div className="flex items-center gap-2 mt-2 font-extrabold text-white cursor-auto">
-							<div className="w-16 h-16 mb-4 rounded-lg   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
-								<Link href={project.demo_url}>
-									<VscLiveShare color="white" size={35} />
-								</Link>
+						<div className="flex justify-between items-center gap-2 mt-2 font-extrabold text-white cursor-auto">
+							<div className="flex items-center gap-2">
+								<div className="w-16 h-16 mb-4 rounded-lg   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
+									<Link href={project.demo_url} target="_blank">
+										<VscLiveShare color="white" size={35} />
+									</Link>
+								</div>
+								{project.demo_url && (
+									<Link href={project.demo_url} target="_blank">
+										Live Demo
+									</Link>
+								)}
 							</div>
-							<Link href={project.demo_url}> Live Demo</Link>
+							<h3 className="capitalize">
+								Project Type: {project.projectType}
+							</h3>
 						</div>
 					</div>
 					<div className="w-16 h-16 mb-4 rounded-lg flex-2   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
-						<Link href={project.github_repo}>
-							<AiFillGithub color="white" size={35} />
-						</Link>
+						{project.github_repo && (
+							<Link href={project.github_repo}>
+								<AiFillGithub color="white" size={35} />
+							</Link>
+						)}
 					</div>
 				</motion.div>
 			) : (

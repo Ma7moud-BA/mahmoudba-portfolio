@@ -10,7 +10,7 @@ const Social = ({ social }: Props) => {
 	const currentTheme = useTheme();
 	return (
 		social.title != "gmail" && (
-			<Link href={social.link || ""} key={social._id} className="z-[999]">
+			<Link href={social.link || ""} key={social._id}>
 				<div>
 					<Image
 						src={social.icon}

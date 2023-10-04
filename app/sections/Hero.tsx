@@ -1,19 +1,21 @@
 import BackgroundCircles from "@/components/BackgroundCircles";
 import CircleImage from "@/components/CircleImage";
-import { getHeroSection, getSocials } from "@/sanity/sanity.utils";
+import { getHeroSection, getResume, getSocials } from "@/sanity/sanity.utils";
 import Image from "next/image";
 import React from "react";
 import heroBg from "@/assets/svgs/herobg-5.svg";
 import heroBgDark from "@/assets/svgs/herobg-dark-5.svg";
 import Link from "next/link";
 import Social from "@/components/Social";
+import { Badge } from "@/components/ui/badge";
 
 const Hero = async () => {
 	const hero_section = await getHeroSection();
 	const socials = await getSocials();
-	//todo:add resume
+	const resume = await getResume();
+
 	//todo:add a new section for the 3d projects
-	//todo:amy add arduino projects
+	//todo:add add arduino projects
 	//upload from production
 	return (
 		<div className="flex flex-col section hero xl:flex-row pt-20 relative ">
@@ -37,6 +39,9 @@ const Hero = async () => {
 						<Social key={social._id} social={social} />
 					))}
 				</div>
+				<Link href={resume.resume} target="_blank">
+					<Badge className="px-20 py-3 font-bold text-xl mt-5"> Resume</Badge>
+				</Link>
 			</div>
 			<div className="relative">
 				<CircleImage imgSrc={hero_section.hero_image}></CircleImage>

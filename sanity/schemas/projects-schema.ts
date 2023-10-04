@@ -50,6 +50,28 @@ const projects_schema = {
 			options: { hotspot: true },
 			of: [{ type: "image", options: [{ hotspot: true }] }],
 		},
+		{
+			name: "projectType",
+			title: "Project Type",
+			type: "string",
+			options: {
+				list: [
+					{ title: "3D", value: "3D" },
+					{ title: "Web", value: "Web" },
+					{ title: "Arduino", value: "Arduino" },
+				],
+			},
+			validation: (Rule: any) => Rule.required(),
+		},
+		// add the sketchfab embed as string and only show this option if the project type is 3D
+		{
+			name: "sketchfabEmbed",
+			title: "Sketchfab Embed Code",
+			type: "string",
+			description: "Paste the Sketchfab embed code here.",
+			hidden: ({ document }: { document: { projectType: string } }) =>
+				document.projectType !== "3D",
+		},
 		{ name: "demo_url", title: "Live Demo Url", type: "url" },
 		{ name: "github_repo", title: "Github Repo Url", type: "url" },
 		{

@@ -1,6 +1,7 @@
 import {
 	HeroSection,
 	Project,
+	Resume,
 	Skill,
 	Social,
 	about_section,
@@ -103,6 +104,7 @@ export const getProjects = async (): Promise<Project[]> => {
 	github_repo,content,
 	 'images':images[].asset->url,
 	 demo_url,
+	 projectType,sketchfabEmbed,
 	techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
 
         
@@ -122,13 +124,14 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 	'bannerUrl':banner.asset->url,
 	github_repo,content,
 	 'images':images[].asset->url,
-	 demo_url,
+	 demo_url,projectType,sketchfabEmbed,
+
 		techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
 }`,
 		{ slug }
 	);
 };
-// socials
+// Socials
 export const getSocials = async (): Promise<Social[]> => {
 	const client = createClient(config);
 
@@ -142,4 +145,12 @@ export const getSocials = async (): Promise<Social[]> => {
 	additionalInfo
 }`
 	);
+};
+// Resume
+export const getResume = async (): Promise<Resume> => {
+	const client = createClient(config);
+
+	return client.fetch(groq`*[_type=="resume"][0]{
+		_id,"resume":file.asset->url,description,title
+	}`);
 };

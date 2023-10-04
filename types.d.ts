@@ -62,6 +62,8 @@ export type Project = {
 	demo_url: URL;
 	github_repo: URL;
 	techs: Skill[];
+	projectType: string;
+	sketchfabEmbed?: string;
 	content: PortableTextBlock[];
 };
 
@@ -71,4 +73,11 @@ export type Social = {
 	icon: string;
 	link: URL;
 	additionalInfo: string;
+};
+
+export type Resume = {
+	_id: string;
+	title: string;
+	description: string;
+	resume: URL;
 };
