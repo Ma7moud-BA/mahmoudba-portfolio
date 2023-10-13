@@ -26,7 +26,7 @@ const Skills = async () => {
 	);
 };
 
-export const getCachedSkills = cache(async () => {
+const getCachedSkills = cache(async () => {
 	const skills = await getSkills();
 	return skills;
 });

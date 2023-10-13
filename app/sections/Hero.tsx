@@ -49,7 +49,7 @@ const Hero = async () => {
 		</div>
 	);
 };
-export const getCachedResume = cache(async () => {
+const getCachedResume = cache(async () => {
 	const resume = await getResume();
 	return resume;
 });

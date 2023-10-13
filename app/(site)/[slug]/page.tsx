@@ -156,7 +156,7 @@ const page = async ({ params }: Props) => {
 		</div>
 	);
 };
-export const getCachedProject = cache(async (slug: string) => {
+const getCachedProject = cache(async (slug: string) => {
 	const project = await getProjectBySlug(slug);
 	return project;
 });

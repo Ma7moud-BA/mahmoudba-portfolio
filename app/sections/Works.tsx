@@ -17,7 +17,7 @@ const Works = async () => {
 		</div>
 	);
 };
-export const getCachedProjects = cache(async () => {
+const getCachedProjects = cache(async () => {
 	const projects = await getProjects();
 	return projects;
 });
