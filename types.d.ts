@@ -61,6 +61,7 @@ export type Project = {
 	images: string[];
 	demo_url: URL;
 	github_repo: URL;
+	google_drive: URL;
 	techs: Skill[];
 	projectType: string;
 	sketchfabEmbed?: string;

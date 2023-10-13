@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { Project, work_section } from "@/types";
+import { Project } from "@/types";
 type ProjectsProps = {
 	projects: Project[];
 };

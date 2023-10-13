@@ -8,11 +8,11 @@ import heroBgDark from "@/assets/svgs/herobg-dark-5.svg";
 import Link from "next/link";
 import Social from "@/components/Social";
 import { Badge } from "@/components/ui/badge";
-
+import { cache } from "react";
 const Hero = async () => {
 	const hero_section = await getHeroSection();
 	const socials = await getSocials();
-	const resume = await getResume();
+	const resume = await getCachedResume();
 
 	//todo:add a new section for the 3d projects
 	//todo:add add arduino projects
@@ -49,5 +49,9 @@ const Hero = async () => {
 		</div>
 	);
 };
+export const getCachedResume = cache(async () => {
+	const resume = await getResume();
+	return resume;
+});
 
 export default Hero;

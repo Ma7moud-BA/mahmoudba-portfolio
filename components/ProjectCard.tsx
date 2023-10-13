@@ -7,6 +7,7 @@ import Image from "next/image";
 import { VscLiveShare } from "react-icons/vsc";
 import { AiFillGithub } from "react-icons/ai";
 import Link from "next/link";
+import { DiGoogleDrive } from "react-icons/di";
 type ProjectCardProps = {
 	index: number;
 	project: Project;
@@ -56,12 +57,14 @@ const ProjectCard = ({
 						</Link>
 						<p className="text-white cursor-auto">{project.description}</p>
 						<div className="flex justify-between items-center gap-2 mt-2 font-extrabold text-white cursor-auto">
-							<div className="flex items-center gap-2">
-								<div className="w-16 h-16 mb-4 rounded-lg   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
-									<Link href={project.demo_url} target="_blank">
-										<VscLiveShare color="white" size={35} />
-									</Link>
-								</div>
+							<div className="flex items-center gap-2 py-5">
+								{project.demo_url && (
+									<div className="w-16 h-16 mb-4 rounded-lg   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
+										<Link href={project.demo_url} target="_blank">
+											<VscLiveShare color="white" size={35} />
+										</Link>
+									</div>
+								)}
 								{project.demo_url && (
 									<Link href={project.demo_url} target="_blank">
 										Live Demo
@@ -73,10 +76,16 @@ const ProjectCard = ({
 							</h3>
 						</div>
 					</div>
+
 					<div className="w-16 h-16 mb-4 rounded-lg flex-2   bg-[rgba(255,255,255,.1)] hover:bg-[rgba(255,255,255,.3)] transition flex items-center justify-center">
 						{project.github_repo && (
 							<Link href={project.github_repo}>
 								<AiFillGithub color="white" size={35} />
+							</Link>
+						)}
+						{project.google_drive && (
+							<Link href={project.google_drive}>
+								<DiGoogleDrive color="white" size={35} />
 							</Link>
 						)}
 					</div>

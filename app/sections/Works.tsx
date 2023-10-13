@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import Projects from "@/components/Projects";
 import { getProjects, getWorkSections } from "@/sanity/sanity.utils";
-
+import { cache } from "react";
 const Works = async () => {
 	const work_section = await getWorkSections();
-	const projects = await getProjects();
+	const projects = await getCachedProjects();
 	const { small_text, large_text, _id } = work_section;
 
 	return (
@@ -17,5 +17,9 @@ const Works = async () => {
 		</div>
 	);
 };
+export const getCachedProjects = cache(async () => {
+	const projects = await getProjects();
+	return projects;
+});
 
 export default Works;

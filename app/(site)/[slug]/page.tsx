@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import React from "react";
+import React, { cache } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { VscLiveShare } from "react-icons/vsc";
 type Props = { params: { slug: string } };
@@ -26,7 +26,7 @@ type PortableTextComponents = {
 };
 const page = async ({ params }: Props) => {
 	const { slug } = params;
-	const project = await getProjectBySlug(slug);
+	const project = await getCachedProject(slug);
 
 	const CustomH1: React.FC = ({ children }: any) => (
 		<h1 className="text-3xl font-bold my-2">{children}</h1>
@@ -83,11 +83,13 @@ const page = async ({ params }: Props) => {
 					{project.title}({project.projectType} Project)
 				</h1>
 				<div className="flex items-center gap-2 mt-2 font-extrabold text-white cursor-auto">
-					<Link href={project.demo_url}>
-						<div className="w-16 h-16 mb-4 rounded-lg     shadow-md text-primary cursor-pointer   bg-muted  hover:brightness-110  transition flex items-center justify-center">
-							<VscLiveShare size={35} />
-						</div>
-					</Link>
+					{project.demo_url && (
+						<Link href={project.demo_url}>
+							<div className="w-16 h-16 mb-4 rounded-lg     shadow-md text-primary cursor-pointer   bg-muted  hover:brightness-110  transition flex items-center justify-center">
+								<VscLiveShare size={35} />
+							</div>
+						</Link>
+					)}
 
 					{project.github_repo && (
 						<Link href={project.github_repo}>
@@ -145,7 +147,6 @@ const page = async ({ params }: Props) => {
 					/>
 				))}
 			</div>
-
 			{project.content && (
 				<>
 					<h2 className="font-bold text-3xl my-2">Project Details:</h2>
@@ -155,5 +156,9 @@ const page = async ({ params }: Props) => {
 		</div>
 	);
 };
+export const getCachedProject = cache(async (slug: string) => {
+	const project = await getProjectBySlug(slug);
+	return project;
+});
 
 export default page;

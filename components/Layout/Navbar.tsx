@@ -5,6 +5,8 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { navMenuVariantsSm, navMenuVariants } from "@/lib/motions";
 import { Link as ScrollLink } from "react-scroll";
+import { revalidatePath } from "next/cache";
+
 import Link from "next/link";
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(true);
@@ -45,6 +47,7 @@ const Navbar = () => {
 			};
 		}
 	}, []);
+
 	const variantsSmOrLg =
 		windowWidth !== undefined && windowWidth < 640
 			? navMenuVariants

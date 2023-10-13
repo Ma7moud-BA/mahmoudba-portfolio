@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Layout/Navbar";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
-
+export const revalidate = 3600;
 export const metadata: Metadata = {
 	title: "MahmoudBA",
 	description: "My portfolio made using nextjs, shadcn,framermotion",

@@ -10,7 +10,6 @@ import {
 } from "@/types";
 import { createClient, groq } from "next-sanity";
 import config from "./client-config";
-
 //! Hero Section:
 export const getHeroSection = async (): Promise<HeroSection> => {
 	const client = createClient(config);
@@ -104,7 +103,7 @@ export const getProjects = async (): Promise<Project[]> => {
 	github_repo,content,
 	 'images':images[].asset->url,
 	 demo_url,
-	 projectType,sketchfabEmbed,
+	 projectType,sketchfabEmbed,google_drive,
 	techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
 
         
@@ -124,7 +123,7 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 	'bannerUrl':banner.asset->url,
 	github_repo,content,
 	 'images':images[].asset->url,
-	 demo_url,projectType,sketchfabEmbed,
+	 demo_url,projectType,sketchfabEmbed,google_drive,
 
 		techs[]->{skill_title,_id,description,docs_url,'icon':icon.asset->url}
 }`,

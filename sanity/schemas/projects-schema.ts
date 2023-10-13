@@ -72,8 +72,10 @@ const projects_schema = {
 			hidden: ({ document }: { document: { projectType: string } }) =>
 				document.projectType !== "3D",
 		},
+
 		{ name: "demo_url", title: "Live Demo Url", type: "url" },
 		{ name: "github_repo", title: "Github Repo Url", type: "url" },
+		{ name: "google_drive", title: "Google Drive Url", type: "url" },
 		{
 			name: "content",
 			title: "Content",

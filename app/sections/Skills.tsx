@@ -2,10 +2,11 @@ import React from "react";
 import Skill from "@/components/Skill";
 import SectionTitle from "@/components/SectionTitle";
 import { getSkills, getSkillsSection } from "@/sanity/sanity.utils";
+import { cache } from "react";
 
 const Skills = async () => {
 	const skill_section = await getSkillsSection();
-	const skills = await getSkills();
+	const skills = await getCachedSkills();
 	const { small_text, large_text } = skill_section;
 
 	return (
@@ -24,5 +25,10 @@ const Skills = async () => {
 		</div>
 	);
 };
+
+export const getCachedSkills = cache(async () => {
+	const skills = await getSkills();
+	return skills;
+});
 
 export default Skills;
